@@ -288,15 +288,39 @@
   desenharSacola();
 })();
 
-/* Banner rotativo: troca sozinho a cada 6 s, para quando o cliente passa o mouse, foca ou prefere menos movimento */
+/* Banner rotativo: troca sozinho, para quando o cliente passa o mouse, foca ou prefere menos movimento.
+   No quadro de calçados, os três modelos entram em sequência antes de o banner seguir. */
 (function () {
   'use strict';
   var v = document.getElementById('vitrine');
   if (!v) return;
   var quadros = Array.prototype.slice.call(v.querySelectorAll('.quadro'));
   var pontos = Array.prototype.slice.call(v.querySelectorAll('.pontos button'));
-  var atual = 0, relogio = null, parado = false;
+  var caixa = document.getElementById('passos');
+  var passos = caixa ? Array.prototype.slice.call(caixa.querySelectorAll('.passo')) : [];
+  var nome = document.getElementById('passo-nome');
+  var atual = 0, passo = 0, relogio = null, relogioPassos = null, parado = false;
   var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function mostrarPasso(n, semAnimar) {
+    if (!passos.length) return;
+    var sai = passos[passo];
+    passo = (n + passos.length) % passos.length;
+    var entra = passos[passo];
+    passos.forEach(function (p) { p.loading = 'eager'; });
+    if (semAnimar || sai === entra) {
+      passos.forEach(function (p, i) { p.classList.add('parado'); p.classList.toggle('ativo', i === passo); p.classList.remove('saiu'); });
+      void caixa.offsetWidth;
+      passos.forEach(function (p) { p.classList.remove('parado'); });
+    } else {
+      entra.classList.add('parado'); entra.classList.remove('saiu', 'ativo');   // volta para a direita, sem animar
+      void entra.offsetWidth;
+      entra.classList.remove('parado');
+      sai.classList.remove('ativo'); sai.classList.add('saiu');
+      entra.classList.add('ativo');
+    }
+    if (nome) nome.textContent = entra.dataset.nome;
+  }
   function ir(n) {
     atual = (n + quadros.length) % quadros.length;
     quadros.forEach(function (q, i) {
@@ -305,10 +329,14 @@
     });
     pontos.forEach(function (p, i) { if (i === atual) p.setAttribute('aria-current', 'true'); else p.removeAttribute('aria-current'); });
     quadros[atual].querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; });
+    if (caixa && quadros[atual].contains(caixa)) mostrarPasso(0, true);
   }
   function agendar() {
-    clearInterval(relogio);
-    if (!calmo && !parado) relogio = setInterval(function () { ir(atual + 1); }, 6000);
+    clearTimeout(relogio); clearInterval(relogioPassos);
+    if (calmo || parado) return;
+    var q = quadros[atual];
+    relogio = setTimeout(function () { ir(atual + 1); agendar(); }, Number(q.dataset.tempo) || 6000);
+    if (caixa && q.contains(caixa)) relogioPassos = setInterval(function () { mostrarPasso(passo + 1); }, 2800);
   }
   v.addEventListener('click', function (e) {
     var b = e.target.closest('[data-passo], [data-ir]');

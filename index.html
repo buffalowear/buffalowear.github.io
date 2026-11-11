@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=6">
+<link rel="stylesheet" href="estilo.css?v=9">
 </head>
 <body>
 
@@ -77,7 +77,21 @@
         <img src="img/c-camisa.jpg" alt="Homem de camisa social azul e calça de sarja bege ao lado de uma mesa de escritório" width="1800" height="1344" fetchpriority="high">
       </div>
     </article>
-    <article class="quadro" aria-roledescription="slide" aria-label="2 de 4" inert>
+    <article class="quadro" aria-roledescription="slide" aria-label="2 de 4" data-tempo="9000" inert>
+      <div class="quadro-texto">
+        <p class="sobre">Calçados</p>
+        <h2>Tênis em couro</h2>
+        <p class="apoio">Em couro, confortável, do trabalho ao fim de semana.</p>
+        <a class="btn claro" href="#catalogo" data-cat="calcados">Ver calçados</a>
+      </div>
+      <div class="quadro-fotos cena passadas" id="passos">
+        <img class="passo ativo" src="img/c-tenis.jpg" alt="Tênis Democrata Jake caramelo em couro, andando em uma rua de pedra" data-nome="Democrata Jake · Caramelo" width="1800" height="1344" loading="lazy">
+        <img class="passo" src="img/c-tenis-preto.jpg" alt="Tênis Democrata Jake preto em couro, andando em uma rua de pedra" data-nome="Democrata Jake · Preto" width="1800" height="1344" loading="lazy">
+        <img class="passo" src="img/c-tenis-branco.jpg" alt="Tênis Crato City branco em couro, andando em uma rua de pedra" data-nome="Crato City · Branco" width="1800" height="1344" loading="lazy">
+        <p class="passo-nome" id="passo-nome" aria-live="polite">Democrata Jake · Caramelo</p>
+      </div>
+    </article>
+    <article class="quadro" aria-roledescription="slide" aria-label="3 de 4" inert>
       <div class="quadro-texto">
         <p class="sobre">Esporte fino</p>
         <h2>Polo piquet</h2>
@@ -88,7 +102,7 @@
         <img src="img/c-polo.jpg" alt="Homem de polo verde e calça clara encostado na varanda de madeira de uma fazenda" width="1800" height="1344" loading="lazy">
       </div>
     </article>
-    <article class="quadro" aria-roledescription="slide" aria-label="3 de 4" inert>
+    <article class="quadro" aria-roledescription="slide" aria-label="4 de 4" inert>
       <div class="quadro-texto">
         <p class="sobre">Verão</p>
         <h2>Short e bermuda</h2>
@@ -96,18 +110,7 @@
         <a class="btn claro" href="#catalogo" data-cat="bermudas">Ver bermudas e shorts</a>
       </div>
       <div class="quadro-fotos cena">
-        <img src="img/c-bermuda.jpg" style="object-position: 78% 60%" alt="Homem de camiseta off-white e bermuda areia em um deque de madeira à beira do lago" width="1800" height="1344" loading="lazy">
-      </div>
-    </article>
-    <article class="quadro" aria-roledescription="slide" aria-label="4 de 4" inert>
-      <div class="quadro-texto">
-        <p class="sobre">Calçados</p>
-        <h2>Tênis em couro</h2>
-        <p class="apoio">Em couro, confortável, do trabalho ao fim de semana.</p>
-        <a class="btn claro" href="#catalogo" data-cat="calcados">Ver calçados</a>
-      </div>
-      <div class="quadro-fotos cena">
-        <img src="img/c-tenis.jpg" style="object-position: 62% 92%" alt="Tênis de couro caramelo com solado claro em uma rua de pedra" width="1800" height="1344" loading="lazy">
+        <img src="img/c-bermuda.jpg" style="object-position: 50% 45%" alt="Bermuda Classic areia em sarja, com camiseta off-white, em um deque à beira do lago" width="1800" height="1344" loading="lazy">
       </div>
     </article>
   </div>
@@ -313,6 +316,6 @@
 
 <script src="produtos.js"></script>
 <script src="avaliacoes.js"></script>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
