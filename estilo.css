@@ -280,3 +280,15 @@ dialog::backdrop { background: rgba(0, 33, 24, .6); }
   .aviso-trilho { animation: none; }
   * { transition: none !important; }
 }
+
+/* Banner principal com fotos de produto: texto no alto, sobre a parede; botões embaixo */
+.hero { height: min(42vw, 82vh); min-height: 460px; }
+.hero::after { background: rgba(0, 33, 24, .22); }
+.hero-texto { top: clamp(22px, 3.4vw, 52px); bottom: auto; left: var(--lado); right: var(--lado); max-width: none; justify-items: center; text-align: center; gap: 12px; }
+.hero h1 { font-size: clamp(24px, 3.3vw, 46px); }
+.hero .apoio { max-width: none; color: var(--branco); }
+.hero-botoes { position: absolute; z-index: 1; left: var(--lado); right: var(--lado); bottom: clamp(20px, 3vw, 40px); justify-content: center; }
+@media (max-width: 860px) {
+  .hero { height: 76vh; }
+  .hero h1 { font-size: clamp(26px, 7.4vw, 36px); }
+}
