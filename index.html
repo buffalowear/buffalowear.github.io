@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buffalo Wear · Moda masculina em Piumhi-MG</title>
+<meta name="description" content="Buffalo Wear: moda masculina em Piumhi-MG. Camisas sociais, polos, camisetas, bermudas e calçados em couro. Conforto e qualidade em um só lugar.">
+<meta name="theme-color" content="#002118">
+<link rel="icon" href="img/simbolo-positivo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Faixa de avisos -->
+<div class="aviso" aria-label="Avisos da loja">
+  <div class="aviso-trilho">
+    <span>Moda masculina em Piumhi-MG</span><span>Enviamos para todo o Brasil</span><span>Calçados em até 10x sem juros</span><span>Troca garantida</span><span>Embrulho para presente</span>
+    <span aria-hidden="true">Moda masculina em Piumhi-MG</span><span aria-hidden="true">Enviamos para todo o Brasil</span><span aria-hidden="true">Calçados em até 10x sem juros</span><span aria-hidden="true">Troca garantida</span><span aria-hidden="true">Embrulho para presente</span>
+  </div>
+</div>
+
+<!-- Cabeçalho -->
+<header class="topo" id="topo">
+  <div class="topo-in">
+    <button class="icone so-mobile" id="btn-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="marca" href="#topo" aria-label="Buffalo Wear, início">
+      <img src="img/tipografia-positivo.svg" alt="Buffalo Wear" width="170" height="26">
+    </a>
+    <nav class="menu" id="menu" aria-label="Categorias">
+      <a href="#novidades">Novidades</a>
+      <a href="#catalogo" data-cat="camisas">Camisas</a>
+      <a href="#catalogo" data-cat="polos">Polos</a>
+      <a href="#catalogo" data-cat="camisetas">Camisetas</a>
+      <a href="#catalogo" data-cat="bermudas">Bermudas</a>
+      <a href="#catalogo" data-cat="calcados">Calçados</a>
+      <a href="#catalogo" data-cat="acessorios">Gravatas</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#loja">A loja</a>
+    </nav>
+    <div class="acoes">
+      <button class="icone" id="btn-busca" aria-label="Buscar produto">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      </button>
+      <button class="icone" id="btn-sacola" aria-label="Abrir sacola">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <span class="conta" id="conta-sacola" hidden>0</span>
+      </button>
+    </div>
+  </div>
+  <form class="busca" id="busca" hidden role="search">
+    <label class="sr" for="campo-busca">Buscar produto</label>
+    <input id="campo-busca" type="search" placeholder="Buscar: camisa, polo, tênis…" autocomplete="off">
+    <button type="submit">Buscar</button>
+  </form>
+</header>
+
+<main id="conteudo">
+
+<!-- Banner principal -->
+<section class="hero">
+  <picture>
+    <source media="(max-width: 700px)" srcset="img/hero-loja-m.jpg">
+    <img src="img/hero-loja.jpg" alt="Interior da loja Buffalo Wear em Piumhi, com a parede verde e o balcão de calçados" width="2000" height="1125" fetchpriority="high">
+  </picture>
+  <div class="hero-texto">
+    <p class="sobre">Moda masculina · Piumhi-MG</p>
+    <h1>Conforto e qualidade em um só lugar</h1>
+    <p class="apoio">Do casual ao social, para o dia a dia, trabalho ou evento.</p>
+    <div class="botoes">
+      <a class="btn claro" href="#novidades">Ver novidades</a>
+      <a class="btn contorno-claro" data-zap="Olá! Vim pelo site da Buffalo Wear e queria uma ajuda." href="#">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Categorias -->
+<section class="bloco" aria-labelledby="t-cat">
+  <div class="cab">
+    <h2 id="t-cat">Compre por categoria</h2>
+  </div>
+  <div class="categorias" id="categorias"></div>
+</section>
+
+<!-- Novidades -->
+<section class="bloco" id="novidades" aria-labelledby="t-nov">
+  <div class="cab">
+    <h2 id="t-nov">Novidades</h2>
+    <a class="link" href="#catalogo" data-cat="todos">Ver tudo <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="grade" id="grade-novidades"></div>
+</section>
+
+<!-- Editorial: calçados -->
+<section class="editorial" aria-labelledby="t-edi">
+  <a class="editorial-foto" href="#" data-produto="tenis-jake">
+    <img src="img/ed-jake.jpg" alt="Tênis Democrata Jake preto em couro sobre mesa de madeira, com parede verde ao fundo" loading="lazy" width="1200" height="1500">
+    <span class="editorial-legenda"><span>Democrata Jake</span><span>Conheça <span aria-hidden="true">→</span></span></span>
+  </a>
+  <div class="editorial-lado">
+    <div class="cab">
+      <h2 id="t-edi">Calçados em couro</h2>
+      <a class="link" href="#catalogo" data-cat="calcados">Ver todos <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="grade duas" id="grade-calcados"></div>
+  </div>
+</section>
+
+<!-- Faixa social -->
+<section class="faixa">
+  <img src="img/ed-social.jpg" alt="Homem sentado vestindo camisa social azul-marinho e calça de sarja" loading="lazy" width="1600" height="1000">
+  <div class="faixa-texto">
+    <p class="sobre">Social e esporte fino</p>
+    <h2>Pronto para uma reunião, um casamento ou formatura.</h2>
+    <a class="link claro" href="#catalogo" data-cat="camisas">Ver camisas <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- Catálogo -->
+<section class="bloco" id="catalogo" aria-labelledby="t-catg">
+  <div class="cab">
+    <h2 id="t-catg">Catálogo</h2>
+    <p class="contagem" id="contagem" aria-live="polite"></p>
+  </div>
+  <div class="abas" id="abas" role="tablist" aria-label="Filtrar por categoria"></div>
+  <div class="grade" id="grade-catalogo"></div>
+  <p class="vazio" id="vazio" hidden>Não achei nada com esse nome. Chama no WhatsApp que a gente procura para você.</p>
+</section>
+
+<!-- Verão -->
+<section class="dupla">
+  <div class="dupla-foto">
+    <img src="img/ed-bermudas.jpg" alt="Bermudas Classic em sarja dobradas em leque: preta, verde musgo, areia, gelo e off-white" loading="lazy" width="1200" height="1500">
+  </div>
+  <div class="dupla-texto">
+    <p class="sobre">Verão</p>
+    <h2>Bermuda Classic em sarja</h2>
+    <p>Alfaiataria em sarja, ideal para o dia a dia e o calor de Piumhi. Vai bem com camiseta básica, polo ou camisa de manga curta.</p>
+    <a class="btn claro" href="#" data-produto="bermuda-classic">Ver cores</a>
+  </div>
+</section>
+
+<!-- A loja -->
+<section class="bloco loja" id="loja" aria-labelledby="t-loja">
+  <div class="loja-texto">
+    <p class="sobre escuro">A loja</p>
+    <h2 id="t-loja">Moda masculina em Piumhi desde 2023</h2>
+    <p>A Buffalo Wear é uma loja exclusivamente masculina, aberta em dezembro de 2023. Nosso forte é o social e o esporte fino: camisa social, calça de sarja e alfaiataria, sapato e tênis de couro legítimo. Também temos linha casual, verão, inverno e acessórios.</p>
+    <p>Atendemos Piumhi e região (Pimenta, Capitólio, São Roque de Minas e Vargem Bonita) e enviamos para todo o Brasil.</p>
+    <ul class="contatos">
+      <li><span>WhatsApp</span><a data-zap="Olá! Vim pelo site da Buffalo Wear." href="#">(37) 99863-5977</a></li>
+      <li><span>Instagram</span><a href="https://www.instagram.com/buffalowearofc/" target="_blank" rel="noopener">@buffalowearofc</a></li>
+      <li><span>Endereço</span><span>Praça Padre Alberico, 171 · Centro · Piumhi-MG</span></li>
+    </ul>
+    <a class="btn escuro" href="https://www.google.com/maps/search/?api=1&amp;query=Buffalo+Wear+Piumhi+MG" target="_blank" rel="noopener">Como chegar</a>
+  </div>
+  <div class="loja-fotos">
+    <img src="img/loja-fachada.jpg" alt="Fachada da Buffalo Wear à noite, na esquina, com o letreiro iluminado" loading="lazy" width="1400" height="900">
+    <img src="img/loja-1.jpg" alt="Interior da loja com araras de camisas e prateleiras de calçados" loading="lazy" width="1400" height="900">
+    <img src="img/loja-2.jpg" alt="Araras de camisas e o provador da loja" loading="lazy" width="1400" height="900">
+  </div>
+</section>
+
+<!-- Avaliações -->
+<section class="bloco" id="avaliacoes" aria-labelledby="t-aval">
+  <div class="cab">
+    <div>
+      <h2 id="t-aval">O que dizem os clientes</h2>
+      <p class="nota-google"><span class="estrelas" aria-hidden="true">★★★★★</span> <strong>5,0</strong> no Google, com 10 avaliações</p>
+    </div>
+    <div class="botoes">
+      <a class="btn contorno" id="avaliar-google" href="#" target="_blank" rel="noopener">Avaliar no Google</a>
+      <a class="btn contorno" data-zap="Olá! Quero deixar minha avaliação da Buffalo Wear:" href="#">Avaliar pelo WhatsApp</a>
+    </div>
+  </div>
+  <ul class="avaliacoes" id="lista-avaliacoes"></ul>
+</section>
+
+<!-- Como comprar -->
+<section class="passos" aria-labelledby="t-como">
+  <h2 id="t-como">Como comprar pelo site</h2>
+  <ol>
+    <li><span class="num">1</span><h3>Escolha a peça</h3><p>Veja as fotos e o preço, escolha a cor e o tamanho e coloque na sacola.</p></li>
+    <li><span class="num">2</span><h3>Mande pelo WhatsApp</h3><p>A sacola vira uma mensagem pronta, com as peças e o total.</p></li>
+    <li><span class="num">3</span><h3>Pague e receba</h3><p>A gente separa as peças e combina o pagamento com você. Depois é só retirar na loja ou receber em casa, enviamos para todo o Brasil.</p></li>
+  </ol>
+</section>
+
+</main>
+
+<!-- Rodapé -->
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <img src="img/logo-negativo.svg" alt="Buffalo Wear" width="150" height="130" loading="lazy">
+      <p class="assinatura">Conforto e qualidade em um só lugar.</p>
+    </div>
+    <nav aria-label="Categorias no rodapé">
+      <h3>Categorias</h3>
+      <a href="#catalogo" data-cat="camisas">Camisas</a>
+      <a href="#catalogo" data-cat="polos">Polos</a>
+      <a href="#catalogo" data-cat="camisetas">Camisetas</a>
+      <a href="#catalogo" data-cat="bermudas">Bermudas e shorts</a>
+      <a href="#catalogo" data-cat="calcados">Calçados</a>
+      <a href="#catalogo" data-cat="acessorios">Gravatas</a>
+    </nav>
+    <div>
+      <h3>Atendimento</h3>
+      <a data-zap="Olá! Vim pelo site da Buffalo Wear." href="#">WhatsApp (37) 99863-5977</a>
+      <a href="https://www.instagram.com/buffalowearofc/" target="_blank" rel="noopener">Instagram @buffalowearofc</a>
+      <span>Praça Padre Alberico, 171 · Centro · Piumhi-MG</span>
+    </div>
+  </div>
+  <p class="fim">© <span id="ano"></span> Buffalo Wear · Moda masculina</p>
+</footer>
+
+<!-- Botão fixo do WhatsApp -->
+<a class="zap-fixo" data-zap="Olá! Vim pelo site da Buffalo Wear e queria uma ajuda." href="#" aria-label="Falar com a loja no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z"/><path d="M8.5 8.5c.3 3 2.6 5.800 6 7l1.500-1.500-2-1.500-1 .8c-1-.5-1.800-1.300-2.300-2.300l.8-1-1.500-2-1.500 .5z" class="cheio"/></svg>
+</a>
+
+<!-- Janela do produto -->
+<dialog class="janela" id="janela" aria-labelledby="j-nome">
+  <button class="fechar" data-fechar aria-label="Fechar">×</button>
+  <div class="janela-in">
+    <div class="galeria">
+      <img id="j-foto" alt="" width="1200" height="1600">
+      <div class="miniaturas" id="j-fotos"></div>
+    </div>
+    <div class="ficha">
+      <p class="sobre escuro" id="j-marca"></p>
+      <h2 id="j-nome"></h2>
+      <div class="valores"><p class="preco" id="j-preco"></p><p class="parcela" id="j-parcela"></p></div>
+      <p id="j-desc"></p>
+      <div class="cores">
+        <p class="rotulo">Cor: <strong id="j-cor"></strong></p>
+        <div class="amostras" id="j-cores" role="radiogroup" aria-label="Cores disponíveis"></div>
+      </div>
+      <div class="cores" id="j-bloco-tam">
+        <p class="rotulo">Tamanho: <strong id="j-tam-escolhido"></strong></p>
+        <div class="tams" id="j-tams" role="radiogroup" aria-label="Tamanhos disponíveis"></div>
+      </div>
+      <div class="botoes coluna">
+        <a class="btn escuro" id="j-zap" href="#" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
+        <button class="btn contorno" id="j-sacola" type="button">Colocar na sacola</button>
+      </div>
+      <p class="nota">Não serviu? Sem problema, a gente troca. A disponibilidade é confirmada no atendimento.</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- Sacola -->
+<dialog class="gaveta" id="sacola" aria-labelledby="s-titulo">
+  <div class="gaveta-cab">
+    <h2 id="s-titulo">Sua sacola</h2>
+    <button class="fechar estatico" data-fechar aria-label="Fechar sacola">×</button>
+  </div>
+  <ul class="itens" id="s-itens"></ul>
+  <p class="vazio" id="s-vazia">Sua sacola está vazia. Escolha uma peça e ela aparece aqui.</p>
+  <div class="gaveta-pe">
+    <p class="total"><span>Total</span><strong id="s-total"></strong></p>
+    <p class="nota">O pedido é fechado pelo WhatsApp. A gente separa as peças e combina o pagamento e a entrega com você.</p>
+    <a class="btn escuro" id="s-enviar" href="#" target="_blank" rel="noopener">Enviar pedido pelo WhatsApp</a>
+    <button class="link" id="s-limpar" type="button">Esvaziar sacola</button>
+  </div>
+</dialog>
+
+<div class="recado" id="recado" role="status" aria-live="polite"></div>
+
+<script src="produtos.js"></script>
+<script src="avaliacoes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
