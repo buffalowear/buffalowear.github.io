@@ -325,9 +325,14 @@ dialog::backdrop { background: rgba(0, 33, 24, .6); }
 }
 
 /* Cenas em paisagem: uma foto por quadro, com o modelo à direita */
-.quadro-fotos.cena { grid-template-columns: 1fr; }
-.quadro-fotos.cena img { object-position: 72% 30%; }
+.quadro-fotos { position: relative; overflow: hidden; }
+.quadro-fotos.cena { display: block; }
+.quadro-fotos.cena img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 30%; }
+.quadro-texto { padding-bottom: clamp(88px, 8vw, 112px); }
+.quadro-texto h1, .quadro-texto h2 { font-size: clamp(26px, min(3.2vw, 6vh), 46px); }
 @media (max-width: 860px) {
   .quadro-fotos.cena { aspect-ratio: 5 / 4; }
   .quadro-fotos.cena img { object-position: 78% 30%; }
+  .quadro-texto { padding-bottom: 84px; }
+  .quadro-texto h1, .quadro-texto h2 { font-size: clamp(26px, 7.4vw, 36px); }
 }
