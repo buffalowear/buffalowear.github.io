@@ -287,3 +287,44 @@
   desenharCatalogo();
   desenharSacola();
 })();
+
+/* Banner rotativo: troca sozinho a cada 6 s, para quando o cliente passa o mouse, foca ou prefere menos movimento */
+(function () {
+  'use strict';
+  var v = document.getElementById('vitrine');
+  if (!v) return;
+  var quadros = Array.prototype.slice.call(v.querySelectorAll('.quadro'));
+  var pontos = Array.prototype.slice.call(v.querySelectorAll('.pontos button'));
+  var atual = 0, relogio = null, parado = false;
+  var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ir(n) {
+    atual = (n + quadros.length) % quadros.length;
+    quadros.forEach(function (q, i) {
+      q.classList.toggle('ativo', i === atual);
+      if (i === atual) q.removeAttribute('inert'); else q.setAttribute('inert', '');
+    });
+    pontos.forEach(function (p, i) { if (i === atual) p.setAttribute('aria-current', 'true'); else p.removeAttribute('aria-current'); });
+    quadros[atual].querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; });
+  }
+  function agendar() {
+    clearInterval(relogio);
+    if (!calmo && !parado) relogio = setInterval(function () { ir(atual + 1); }, 6000);
+  }
+  v.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-passo], [data-ir]');
+    if (!b) return;
+    ir(b.dataset.ir !== undefined ? Number(b.dataset.ir) : atual + Number(b.dataset.passo));
+    agendar();
+  });
+  ['mouseenter', 'focusin'].forEach(function (ev) { v.addEventListener(ev, function () { parado = true; agendar(); }); });
+  ['mouseleave', 'focusout'].forEach(function (ev) { v.addEventListener(ev, function () { parado = false; agendar(); }); });
+  var x0 = null;
+  v.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  v.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) { ir(atual + (dx < 0 ? 1 : -1)); agendar(); }
+    x0 = null;
+  });
+  agendar();
+})();

@@ -292,3 +292,34 @@ dialog::backdrop { background: rgba(0, 33, 24, .6); }
   .hero { height: 76vh; }
   .hero h1 { font-size: clamp(26px, 7.4vw, 36px); }
 }
+
+/* Banner rotativo */
+.vitrine { position: relative; background: var(--verde); color: var(--creme); }
+.quadros { display: grid; }
+.quadro { grid-area: 1 / 1; display: grid; grid-template-columns: minmax(300px, 4fr) 7fr; height: min(46vw, 80vh); min-height: 460px; opacity: 0; visibility: hidden; transition: opacity .7s, visibility .7s; }
+.quadro.ativo { opacity: 1; visibility: visible; }
+.quadro-texto { display: grid; align-content: center; justify-items: start; gap: 16px; padding: clamp(24px, 4vw, 64px); padding-bottom: clamp(70px, 7vw, 96px); }
+.quadro-texto h1, .quadro-texto h2 { font-size: clamp(28px, 3.5vw, 52px); line-height: 1.06; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--branco); }
+.quadro-texto .apoio { max-width: 34ch; font-size: clamp(14px, 1.2vw, 17px); }
+.quadro-texto .btn { margin-top: 10px; }
+.quadro-fotos { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+.quadro-fotos.larga { grid-template-columns: 1fr; }
+.quadro-fotos img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 30%; }
+.quadro-fotos.larga img { object-position: 50% 60%; }
+.vitrine-controles { position: absolute; z-index: 2; left: clamp(24px, 4vw, 64px); bottom: clamp(18px, 2.4vw, 32px); display: flex; align-items: center; gap: 10px; }
+.seta { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(219, 212, 196, .5); color: var(--creme); }
+.seta:hover { background: var(--creme); color: var(--verde); }
+.seta svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.pontos { display: flex; gap: 6px; padding: 0 4px; }
+.pontos button { width: 22px; height: 22px; display: grid; place-items: center; }
+.pontos button::before { content: ""; width: 18px; height: 2px; background: rgba(219, 212, 196, .4); }
+.pontos button[aria-current="true"]::before { background: var(--creme); height: 3px; }
+@media (max-width: 860px) {
+  .quadro { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 0; }
+  .quadro-fotos { order: -1; aspect-ratio: 5 / 4; }
+  .quadro-fotos.larga { aspect-ratio: 5 / 4; }
+  .quadro-fotos.larga img { object-position: 50% 55%; }
+  .quadro-texto { padding: 26px var(--lado) 84px; gap: 12px; min-height: 260px; align-content: start; }
+  .quadro-texto h1, .quadro-texto h2 { font-size: clamp(26px, 7.4vw, 36px); }
+  .vitrine-controles { left: var(--lado); bottom: 22px; }
+}
