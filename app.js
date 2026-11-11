@@ -333,7 +333,7 @@
   }
   function agendar() {
     clearTimeout(relogio); clearInterval(relogioPassos);
-    if (calmo || parado) return;
+    if (parado) return;
     var q = quadros[atual];
     relogio = setTimeout(function () { ir(atual + 1); agendar(); }, Number(q.dataset.tempo) || 6000);
     if (caixa && q.contains(caixa)) relogioPassos = setInterval(function () { mostrarPasso(passo + 1); }, 2800);
@@ -344,8 +344,9 @@
     ir(b.dataset.ir !== undefined ? Number(b.dataset.ir) : atual + Number(b.dataset.passo));
     agendar();
   });
-  ['mouseenter', 'focusin'].forEach(function (ev) { v.addEventListener(ev, function () { parado = true; agendar(); }); });
-  ['mouseleave', 'focusout'].forEach(function (ev) { v.addEventListener(ev, function () { parado = false; agendar(); }); });
+  // O banner segue trocando mesmo com o mouse em cima; só para enquanto o cliente navega pelos botões com o teclado.
+  v.addEventListener('focusin', function (e) { if (e.target.matches(':focus-visible')) { parado = true; agendar(); } });
+  v.addEventListener('focusout', function () { parado = false; agendar(); });
   var x0 = null;
   v.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   v.addEventListener('touchend', function (e) {
